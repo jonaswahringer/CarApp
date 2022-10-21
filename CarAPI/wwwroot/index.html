@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Car CRUD</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Car CRUD</h1>
+
+    <div id="car-container">
+        <h2>Cars</h2>
+
+        <p id="car-counter"></p>
+
+        <table>
+            <tr>
+                <th>CarId</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Created At</th>
+                <th>Modified At</th>
+            </tr>
+            <tbody id="cars"></tbody>
+        </table>
+
+        <div id="editCarForm">
+            <h3>Edit</h3>
+            <form action="javascript:void(0);" onsubmit="updateCar()">
+                <input type="hidden" id="edit-car-id">
+                <input type="text" id="edit-car-name" placeholder="Name">
+                <input type="text" id="edit-car-type" placeholder="Type">
+                <input type="submit" value="Save">
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+            <br />
+        </div>
+
+        <h3>Add Car</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="addCar()">
+            <input type="text" id="car-name" placeholder="Name">
+            <input type="text" id="car-type" placeholder="Type">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <div id="telemetry-container">
+        <h2>Telemetries</h2>
+
+        <p id="telemetry-counter"></p>
+
+        <table>
+            <tr>
+                <th>TelemetryId</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Speed</th>
+                <th>Capacity</th>
+                <th>CarId</th>
+            </tr>
+            <tbody id="telemetries"></tbody>
+        </table>
+
+        <div id="editTelemetryForm">
+            <h3>Edit</h3>
+            <form action="javascript:void(0);" onsubmit="updateTelemetry()">
+                <input type="hidden" id="edit-telemetry-id">
+                <input type="hidden" id="edit-telemetry-idCar">
+                <input type="number" id="edit-telemetry-longitude" placeholder="Longitude">
+                <input type="number" id="edit-telemetry-latitude" placeholder="Latitude">
+                <input type="number" id="edit-telemetry-speed" placeholder="speed">
+                <input type="number" id="edit-telemetry-capacity" placeholder="capacity">
+                <input type="submit" value="Save">
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+            <br />
+        </div>
+
+        <h3>Add Telemetry</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="addTelemetry()">
+            <input type="number" id="telemetry-latitude" placeholder="Latitude">
+            <input type="number" id="telemetry-longitude" placeholder="Longitude">
+            <input type="number" id="telemetry-capacity" placeholder="Capacity">
+            <input type="number" id="telemetry-speed" placeholder="Speed">
+            <select id="telemetry-carId-dropdown">
+                <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">getItems();</script>
+    <script type="text/javascript">closeInput();</script>
+</body>
+</html>
